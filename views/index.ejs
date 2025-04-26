@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoleMate | Premium Footwear</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/stylesheet/index.css">
+</head>
+<body>
+    <div class="background-overlay"></div>
+    
+    <div class="wrapper">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-shoe-prints"></i>
+                <h1>Sole<span>Mate</span></h1>
+            </div>
+            <!-- <p class="tagline">Step into perfect comfort</p> -->
+        </header>   
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Sign In Section -->
+            <section class="auth-section signin-section">
+                <div class="section-header">
+                    <h2>Welcome Back</h2>
+                    <p class="section-description">Sign in to access your collection</p>
+                </div>
+                
+                <form class="auth-form" action="/users/sign-in" method="POST">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="email" name="email" placeholder="Enter your Email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="password" name="password" placeholder="••••••••" required>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">
+                        <span>Sign In</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    
+                    <div class="social-login">
+                        <p>Or continue with</p>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon"><i class="fab fa-google"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                            
+                        </div>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Sign Up Section -->
+            <section class="auth-section signup-section">
+                <div class="section-header">
+                    <h2>Join SoleMate</h2>
+                    <p class="section-description">Create your free account</p>
+                </div>
+                
+                <form class="auth-form" action="/users/sign-up" method="POST">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mobile">Mobile</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-phone"></i>
+                            <input type="tel" id="mobile" name="mobile" placeholder="Enter your mobile no" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <div class="input-with-icon">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" id="password" name="password" placeholder="••••••••" required>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-secondary">
+                        <span>Sign Up</span>
+                        <i class="fas fa-user-plus"></i>
+                    </button>
+                    
+                    <p class="terms">By signing up, you agree to our <a href="#">Terms</a> and <a href="#">Privacy Policy</a></p>
+                </form>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

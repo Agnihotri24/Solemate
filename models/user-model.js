@@ -13,9 +13,6 @@ const userSchema = mongoose.Schema({
   name: {
     type: String,
   },
-  username: {
-    type: String,
-  },
   email: {
     type: String,
   },
@@ -39,9 +36,6 @@ const userSchema = mongoose.Schema({
   },
   useraddress: {
     type: AddressSchema,
-  },
-  isadmin : {
-    type : Boolean
   }
 });
 

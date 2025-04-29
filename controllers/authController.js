@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 const cookies = require("cookie-parser");
 const { gentokens } = require("../utils/genToken");
 
+
 // controller for registered user
 module.exports.registerUser = async (req, res) => {
   try {
@@ -20,6 +21,7 @@ module.exports.registerUser = async (req, res) => {
     bcrypt.genSalt(10, (err, salt) => {
       bcrypt.hash(password, salt, async (err, hash) => {
         if (err) return res.send(err.message);
+
         else {
           let createuser = await userModel.create({
             name,
@@ -39,6 +41,7 @@ module.exports.registerUser = async (req, res) => {
   }
 };
 
+
 // controller for login user
 
 module.exports.loginUser = async (req, res) => {
@@ -56,7 +59,7 @@ module.exports.loginUser = async (req, res) => {
           // after login we have to set cookies with JWT and send with resonse and userprofile
           const token = gentokens(user);
           res.cookie("token", token);
-          res.redirect("/users");
+          res.render("shop");
         } else {
           res.send("Invalid password");
         }
@@ -67,8 +70,9 @@ module.exports.loginUser = async (req, res) => {
   }
 };
 
+
 module.exports.logoutUser = (req, res)=>
 {
    res.cookie("token", "");
-   res.redirect("index");
+   res.redirect("/");
 }

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solemate - Find Your Perfect Pair</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/stylesheet/shop.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="#" class="logo">
+            <i class="fas fa-shoe-prints"></i>
+            Sole<span>mate</span>
+        </a>
+        <div class="nav-links">
+            <a href="/users/shop">Home</a>
+            <a href="/users/men">Men</a>
+            <a href="/users/women">Women</a>
+            <a href="/users/kid">Kids</a>
+            <a href="/users/sale">Sale</a>
+            <a href="/users/profile"><i class="fas fa-user"></i> Profile</a>
+            <a href="/users/cart"><i class="fas fa-shopping-cart"></i> Cart <span class="cart-count">3</span></a>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Filters Section -->
+        <aside class="filters">
+            <h3>Filters</h3>
+            
+            <div class="filter-section">
+                <h4>Categories</h4>
+                <div class="filter-options">
+                    <div class="filter-option">
+                        <input type="checkbox" id="sneakers" checked>
+                        <label for="sneakers">Sneakers</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="running" checked>
+                        <label for="running">Running</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="casual" checked>
+                        <label for="casual">Casual</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="formal" checked>
+                        <label for="formal">Formal</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="sports" checked>
+                        <label for="sports">Sports</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="filter-section">
+                <h4>Price Range</h4>
+                <input type="range" class="price-range" min="0" max="500" value="250">
+                <div class="price-values">
+                    <span>₹0</span>
+                    <span>₹250</span>
+                    <span>₹500</span>
+                </div>
+            </div>
+            
+            <div class="filter-section">
+                <h4>Brand</h4>
+                <div class="filter-options">
+                    <div class="filter-option">
+                        <input type="checkbox" id="nike" checked>
+                        <label for="nike">Nike</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="adidas" checked>
+                        <label for="adidas">Adidas</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="puma" checked>
+                        <label for="puma">Puma</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="reebok" checked>
+                        <label for="reebok">Reebok</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="vans" checked>
+                        <label for="vans">Vans</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="filter-section">
+                <h4>Size</h4>
+                <div class="filter-options">
+                    <div class="filter-option">
+                        <input type="checkbox" id="size-7">
+                        <label for="size-7">7</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="size-8" checked>
+                        <label for="size-8">8</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="size-9" checked>
+                        <label for="size-9">9</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="size-10">
+                        <label for="size-10">10</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="size-11">
+                        <label for="size-11">11</label>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="apply-filters">Apply Filters</button>
+        </aside>
+        
+        <!-- Products Grid -->
+        <main class="products">
+            <!-- Product Card 1 -->
+            <div class="product-card">
+                <span class="product-badge">New</span>
+                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                <img src="/img/product-img-01" alt="Nike Air Max" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-name">Nike Air Max 270</h3>
+                    <p class="product-brand">Nike</p>
+                    <div class="product-price">
+                        <span class="current-price">₹149.99</span>
+                        <span class="original-price">₹179.99</span>
+                        <span class="discount">17% OFF</span>
+                    </div>
+                    <button class="add-to-cart">
+                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Product Card 2 -->
+            <div class="product-card">
+                <button class="wishlist-btn active"><i class="fas fa-heart"></i></button>
+                <img src="/img/product-img-02" alt="Adidas Ultraboost" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-name">Adidas Ultraboost 21</h3>
+                    <p class="product-brand">Adidas</p>
+                    <div class="product-price">
+                        <span class="current-price">₹179.99</span>
+                        <span class="original-price">₹199.99</span>
+                        <span class="discount">10% OFF</span>
+                    </div>
+                    <button class="add-to-cart">
+                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Product Card 3 -->
+            <div class="product-card">
+                <span class="product-badge">Bestseller</span>
+                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Puma RS-X" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-name">Puma RS-X Reinvention</h3>
+                    <p class="product-brand">Puma</p>
+                    <div class="product-price">
+                        <span class="current-price">₹89.99</span>
+                        <span class="original-price">₹109.99</span>
+                        <span class="discount">18% OFF</span>
+                    </div>
+                    <button class="add-to-cart">
+                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Product Card 4 -->
+            <div class="product-card">
+                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                <img src="https://images.unsplash.com/photo-1600269452121-4f2416e55c28?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Reebok Classic" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-name">Reebok Classic Leather</h3>
+                    <p class="product-brand">Reebok</p>
+                    <div class="product-price">
+                        <span class="current-price">₹74.99</span>
+                        <span class="original-price">₹89.99</span>
+                        <span class="discount">17% OFF</span>
+                    </div>
+                    <button class="add-to-cart">
+                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Product Card 5 -->
+            <div class="product-card">
+                <span class="product-badge">Limited</span>
+                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Vans Old Skool" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-name">Vans Old Skool</h3>
+                    <p class="product-brand">Vans</p>
+                    <div class="product-price">
+                        <span class="current-price">₹59.99</span>
+                        <span class="original-price">₹69.99</span>
+                        <span class="discount">14% OFF</span>
+                    </div>
+                    <button class="add-to-cart">
+                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Product Card 6 -->
+            <div class="product-card">
+                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+                <img src="https://images.unsplash.com/photo-1605408499391-6368c628ef42?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Nike Air Force" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-name">Nike Air Force 1 '07</h3>
+                    <p class="product-brand">Nike</p>
+                    <div class="product-price">
+                        <span class="current-price">₹99.99</span>
+                        <span class="original-price">₹119.99</span>
+                        <span class="discount">17% OFF</span>
+                    </div>
+                    <button class="add-to-cart">
+                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/javascript/shop.js"></script>
+       
+    </script>
+</body>
+</html>

@@ -2,10 +2,8 @@ const express = require('express');
 const db = require('./config/mongoose-connection');
 const app = express();
 
-// acquire all package for cookies, hash, path and jwt
+// acquire all package for cookies
 const cookieParser = require('cookie-parser');
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
 const path = require('path');
 require('dotenv').config();
 
@@ -13,11 +11,6 @@ require('dotenv').config();
 // setting view Engine 
 app.set('view engine', 'ejs');
 app.set("views", __dirname + "/views");
-
-// acquire all models and routes
-const userModel = require('./models/user-model');
-const productModel = require('./models/product-model');
-const ownerModel = require('./models/owner-model');
 
 
 const indexRouter = require('./routes/indexRoute');

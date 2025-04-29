@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - SoleMate</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/stylesheet/profile.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="#" class="logo">
+            <i class="fas fa-shoe-prints"></i>
+            Sole<span>mate</span>
+        </a>
+        <div class="nav-links">
+            <a href="/users/shop"><i class="fas fa-arrow-left"></i> Back to Shop</a>
+            <a href="/users/profile"><i class="fas fa-user"></i> Profile</a>
+            <a href="/users/cart"><i class="fas fa-shopping-cart"></i> Cart <span class="cart-count">3</span></a>
+        </div>
+    </nav>
+    
+    <!-- Profile Container -->
+    <div class="profile-container">
+        <div class="profile-header">
+            <h1 class="profile-title">My Account</h1>
+        </div>
+        
+        <div class="profile-layout">
+            <!-- Profile Sidebar -->
+            <div class="profile-sidebar">
+                <div class="profile-card">
+                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Profile" class="profile-avatar">
+                    <h2 class="profile-name">Sarah Johnson</h2>
+                    <p class="profile-email">sarah.johnson@example.com</p>
+                </div>
+                
+                <ul class="profile-menu">
+                    <li><a href="#" class="active"><i class="fas fa-user"></i> Personal Info</a></li>
+                    <li><a href="#"><i class="fas fa-box"></i> Order History</a></li>
+                    <li><a href="#"><i class="fas fa-heart"></i> Wishlist</a></li>
+                    <li><a href="#"><i class="fas fa-map-marker-alt"></i> Address Book</a></li>
+                    <li><a href="#"><i class="fas fa-lock"></i> Change Password</a></li>
+                    <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+            </div>
+            
+            <!-- Profile Content - Personal Info -->
+            <div class="profile-content">
+                <div class="content-header">
+                    <h2 class="content-title">Personal Information</h2>
+                    <button class="edit-btn">
+                        <i class="fas fa-edit"></i> Edit Profile
+                    </button>
+                </div>
+                
+                <div class="personal-info">
+                    <div class="info-group">
+                        <span class="info-label">First Name</span>
+                        <div class="info-value">Sarah</div>
+                    </div>
+                    
+                    <div class="info-group">
+                        <span class="info-label">Last Name</span>
+                        <div class="info-value">Johnson</div>
+                    </div>
+                    
+                    <div class="info-group">
+                        <span class="info-label">Email</span>
+                        <div class="info-value">sarah.johnson@example.com</div>
+                    </div>
+                    
+                    <div class="info-group">
+                        <span class="info-label">Phone Number</span>
+                        <div class="info-value">(555) 123-4567</div>
+                    </div>
+                    
+                    <div class="info-group">
+                        <span class="info-label">Date of Birth</span>
+                        <div class="info-value">March 15, 1990</div>
+                    </div>
+                    
+                    <div class="info-group">
+                        <span class="info-label">Gender</span>
+                        <div class="info-value">Female</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Profile Content - Order History (Hidden) -->
+            <!-- <div class="profile-content" style="display: none;">
+                <div class="content-header">
+                    <h2 class="content-title">Order History</h2>
+                </div>
+                
+                <div class="order-card">
+                    <div class="order-header">
+                        <div>
+                            <span class="order-id">Order #SM-123456</span>
+                            <span class="order-date">Placed on March 12, 2023</span>
+                        </div>
+                        <span class="order-status status-delivered">Delivered</span>
+                    </div>
+                    
+                    <div class="order-details">
+                        <img src="https://images.unsplash.com/photo-1600269452121-4f2416e55c28?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Nike Air Max 270" class="order-image">
+                        <div>
+                            <div class="order-product">Nike Air Max 270 React</div>
+                            <div class="order-brand">Nike</div>
+                            <div class="order-price">$149.99</div>
+                        </div>
+                    </div>
+                    
+                    <div class="order-details">
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Adidas Ultraboost" class="order-image">
+                        <div>
+                            <div class="order-product">Adidas Ultraboost 21</div>
+                            <div class="order-brand">Adidas</div>
+                            <div class="order-price">$179.99</div>
+                        </div>
+                    </div>
+                    
+                    <div class="order-footer">
+                        <div class="order-total">Total: $329.98</div>
+                        <div class="order-actions">
+                            <a href="#">View Details</a>
+                            <a href="#">Track Order</a>
+                            <a href="#">Buy Again</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="order-card">
+                    <div class="order-header">
+                        <div>
+                            <span class="order-id">Order #SM-789012</span>
+                            <span class="order-date">Placed on February 28, 2023</span>
+                        </div>
+                        <span class="order-status status-processing">Processing</span>
+                    </div>
+                    
+                    <div class="order-details">
+                        <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Puma RS-X" class="order-image">
+                        <div>
+                            <div class="order-product">Puma RS-X Reinvention</div>
+                            <div class="order-brand">Puma</div>
+                            <div class="order-price">$89.99</div>
+                        </div>
+                    </div>
+                    
+                    <div class="order-footer">
+                        <div class="order-total">Total: $89.99</div>
+                        <div class="order-actions">
+                            <a href="#">View Details</a>
+                            <a href="#">Cancel Order</a>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            
+            <!-- Profile Content - Wishlist (Hidden) -->
+            <!-- <div class="profile-content" style="display: none;">
+                <div class="content-header">
+                    <h2 class="content-title">My Wishlist (3 items)</h2>
+                </div>
+                
+                <div class="wishlist-grid">
+                    <div class="wishlist-item">
+                        <img src="https://images.unsplash.com/photo-1600269452121-4f2416e55c28?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Nike Air Max 270" class="wishlist-image">
+                        <div class="wishlist-details">
+                            <div class="wishlist-product">Nike Air Max 270 React</div>
+                            <div class="wishlist-brand">Nike</div>
+                            <div class="wishlist-price">
+                                <span class="wishlist-current">$149.99</span>
+                                <span class="wishlist-original">$179.99</span>
+                            </div>
+                            <div class="wishlist-actions">
+                                <button class="wishlist-btn wishlist-btn-primary">
+                                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                                </button>
+                                <button class="wishlist-btn wishlist-btn-secondary">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="wishlist-item">
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Adidas Ultraboost" class="wishlist-image">
+                        <div class="wishlist-details">
+                            <div class="wishlist-product">Adidas Ultraboost 21</div>
+                            <div class="wishlist-brand">Adidas</div>
+                            <div class="wishlist-price">
+                                <span class="wishlist-current">$179.99</span>
+                                <span class="wishlist-original">$199.99</span>
+                            </div>
+                            <div class="wishlist-actions">
+                                <button class="wishlist-btn wishlist-btn-primary">
+                                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                                </button>
+                                <button class="wishlist-btn wishlist-btn-secondary">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="wishlist-item">
+                        <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Puma RS-X" class="wishlist-image">
+                        <div class="wishlist-details">
+                            <div class="wishlist-product">Puma RS-X Reinvention</div>
+                            <div class="wishlist-brand">Puma</div>
+                            <div class="wishlist-price">
+                                <span class="wishlist-current">$89.99</span>
+                                <span class="wishlist-original">$109.99</span>
+                            </div>
+                            <div class="wishlist-actions">
+                                <button class="wishlist-btn wishlist-btn-primary">
+                                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                                </button>
+                                <button class="wishlist-btn wishlist-btn-secondary">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            
+            <!-- Profile Content - Address Book (Hidden) -->
+            <!-- <div class="profile-content" style="display: none;">
+                <div class="content-header">
+                    <h2 class="content-title">Address Book</h2>
+                    <button class="edit-btn">
+                        <i class="fas fa-plus"></i> Add New Address
+                    </button>
+                </div>
+                
+                <div class="address-grid">
+                    <div class="address-card">
+                        <span class="address-default">Default</span>
+                        <div class="address-name">Sarah Johnson</div>
+                        <div class="address-details">
+                            123 Main Street<br>
+                            Apt 4B<br>
+                            New York, NY 10001<br>
+                            United States
+                        </div>
+                        <span class="address-phone">(555) 123-4567</span>
+                        <div class="address-actions">
+                            <button class="address-btn address-btn-primary">
+                                <i class="fas fa-edit"></i> Edit
+                            </button>
+                            <button class="address-btn address-btn-secondary">
+                                <i class="fas fa-trash"></i> Remove
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="address-card">
+                        <div class="address-name">Sarah Johnson</div>
+                        <div class="address-details">
+                            456 Oak Avenue<br>
+                            Los Angeles, CA 90001<br>
+                            United States
+                        </div>
+                        <span class="address-phone">(555) 987-6543</span>
+                        <div class="address-actions">
+                            <button class="address-btn address-btn-primary">
+                                <i class="fas fa-edit"></i> Edit
+                            </button>
+                            <button class="address-btn address-btn-secondary">
+                                <i class="fas fa-trash"></i> Remove
+                            </button>
+                            <button class="address-btn address-btn-primary">
+                                <i class="fas fa-check"></i> Set as Default
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+    <script>
+        // Tab switching functionality
+        const menuLinks = document.querySelectorAll('.profile-menu a');
+        const contentSections = document.querySelectorAll('.profile-content');
+        
+        menuLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all menu items
+                menuLinks.forEach(item => item.classList.remove('active'));
+                
+                // Add active class to clicked menu item
+                this.classList.add('active');
+                
+                // Hide all content sections
+                contentSections.forEach(section => section.style.display = 'none');
+                
+                // Show corresponding content section
+                // In a real implementation, you would show the appropriate section
+                // based on which menu item was clicked
+                document.querySelector('.profile-content').style.display = 'block';
+            });
+        });
+        
+        // Edit profile button
+        const editBtn = document.querySelector('.edit-btn');
+        editBtn.addEventListener('click', function() {
+            alert('Edit profile functionality would go here');
+            // In a real implementation, this would enable editing of profile fields
+        });
+    </script>
+</body>
+</html>

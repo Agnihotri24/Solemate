@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - SoleMate</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #ff6b6b;
+            --secondary-color: #4ecdc4;
+            --dark-color: #292f36;
+            --light-color: #f7fff7;
+            --accent-color: #ffd166;
+            --sidebar-width: 250px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: var(--dark-color);
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        /* Sidebar Styles */
+        .admin-sidebar {
+            width: var(--sidebar-width);
+            background-color: var(--dark-color);
+            color: var(--light-color);
+            padding: 1.5rem 0;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0 1.5rem 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .logo i {
+            font-size: 1.8rem;
+            color: var(--secondary-color);
+        }
+        
+        .logo h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: var(--primary-color);
+        }
+        
+        .admin-nav {
+            padding: 1.5rem 0;
+        }
+        
+        .admin-nav a {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.8rem 1.5rem;
+            color: var(--light-color);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .admin-nav a:hover, .admin-nav a.active {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--secondary-color);
+        }
+        
+        .admin-nav a i {
+            width: 24px;
+            text-align: center;
+        }
+        
+        /* Main Content */
+        .admin-main {
+            flex: 1;
+            padding: 2rem;
+        }
+        
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .admin-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .admin-actions {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .admin-btn {
+            padding: 0.6rem 1rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .admin-btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .admin-btn-primary:hover {
+            background-color: #ff5252;
+        }
+        
+        .admin-btn-secondary {
+            background-color: var(--dark-color);
+            color: white;
+        }
+        
+        .admin-btn-secondary:hover {
+            background-color: #3a4750;
+        }
+        
+        .admin-user {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-left: 1rem;
+        }
+        
+        .admin-user img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        /* Dashboard Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .stat-info h3 {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        
+        .stat-sales {
+            background-color: rgba(78, 205, 196, 0.1);
+            color: var(--secondary-color);
+        }
+        
+        .stat-orders {
+            background-color: rgba(255, 107, 107, 0.1);
+            color: var(--primary-color);
+        }
+        
+        .stat-products {
+            background-color: rgba(255, 209, 102, 0.1);
+            color: var(--accent-color);
+        }
+        
+        .stat-customers {
+            background-color: rgba(41, 47, 54, 0.1);
+            color: var(--dark-color);
+        }
+        
+        .stat-change {
+            font-size: 0.8rem;
+            margin-top: 0.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+        
+        .change-up {
+            color: #4caf50;
+        }
+        
+        .change-down {
+            color: #f44336;
+        }
+        
+        /* Charts Section */
+        .charts-section {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .chart-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .chart-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .chart-period {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .period-btn {
+            padding: 0.3rem 0.8rem;
+            border: none;
+            border-radius: 20px;
+            background: none;
+            font-size: 0.8rem;
+            cursor: pointer;
+        }
+        
+        .period-btn.active {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        .chart-placeholder {
+            height: 300px;
+            background-color: #f9f9f9;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+        }
+        
+        /* Recent Activity */
+        .activity-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        
+        .activity-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .activity-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .activity-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        
+        .view-all {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .activity-list {
+            list-style: none;
+        }
+        
+        .activity-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+        
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(78, 205, 196, 0.1);
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .activity-details {
+            flex: 1;
+        }
+        
+        .activity-message {
+            margin-bottom: 0.3rem;
+            line-height: 1.4;
+        }
+        
+        .activity-time {
+            color: #999;
+            font-size: 0.8rem;
+        }
+        
+        /* Order Item */
+        .order-item {
+            display: grid;
+            grid-template-columns: 60px 1fr auto;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+            align-items: center;
+        }
+        
+        .order-item:last-child {
+            border-bottom: none;
+        }
+        
+        .order-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 6px;
+            object-fit: cover;
+        }
+        
+        .order-product {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+        
+        .order-id {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .order-status {
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .status-processing {
+            background-color: rgba(255, 214, 102, 0.2);
+            color: var(--accent-color);
+        }
+        
+        .status-shipped {
+            background-color: rgba(78, 205, 196, 0.2);
+            color: var(--secondary-color);
+        }
+        
+        .status-delivered {
+            background-color: rgba(76, 175, 80, 0.2);
+            color: #4caf50;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .charts-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .activity-section {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            
+            .admin-sidebar {
+                width: 100%;
+                height: auto;
+                position: static;
+            }
+            
+            .admin-nav {
+                display: flex;
+                overflow-x: auto;
+                padding: 0;
+            }
+            
+            .admin-nav a {
+                padding: 1rem;
+                white-space: nowrap;
+            }
+            
+            .admin-main {
+                padding: 1.5rem;
+            }
+            
+            .admin-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            
+            .admin-actions {
+                width: 100%;
+                justify-content: space-between;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <aside class="admin-sidebar">
+        <div class="logo">
+            <i class="fas fa-shoe-prints"></i>
+            <h1>Sole<span>Mate</span></h1>
+        </div>
+        
+        <nav class="admin-nav">
+            <a href="/owners/admin" class="active">
+                <i class="fas fa-tachometer-alt"></i>
+                Dashboard
+            </a>
+            <a href="/owners/admin/create/product">
+                <i class="fas fa-plus-circle"></i>
+                Create Product
+            </a>
+            <a href="/admin/products">
+                <i class="fas fa-shoe-prints"></i>
+                Products
+            </a>
+            <a href="/admin/orders">
+                <i class="fas fa-shopping-bag"></i>
+                Orders
+            </a>
+            <a href="/admin/customers">
+                <i class="fas fa-users"></i>
+                Customers
+            </a>
+            <a href="/admin/settings">
+                <i class="fas fa-cog"></i>
+                Settings
+            </a>
+            <a href="/admin/logout">
+                <i class="fas fa-sign-out-alt"></i>
+                Logout
+            </a>
+        </nav>
+    </aside>
+    
+    <!-- Main Content -->
+    <main class="admin-main">
+        <div class="admin-header">
+            <h1 class="admin-title">Dashboard Overview</h1>
+            <div class="admin-actions">
+                <button class="admin-btn admin-btn-primary">
+                    <i class="fas fa-plus"></i> New Product
+                </button>
+                <button class="admin-btn admin-btn-secondary">
+                    <i class="fas fa-download"></i> Export
+                </button>
+                <div class="admin-user">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Admin">
+                    <span>Admin</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-info">
+                    <h3>Total Sales</h3>
+                    <div class="stat-value">$24,589</div>
+                    <div class="stat-change change-up">
+                        <i class="fas fa-arrow-up"></i> 12.5% from last month
+                    </div>
+                </div>
+                <div class="stat-icon stat-sales">
+                    <i class="fas fa-dollar-sign"></i>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-info">
+                    <h3>New Orders</h3>
+                    <div class="stat-value">186</div>
+                    <div class="stat-change change-up">
+                        <i class="fas fa-arrow-up"></i> 8.3% from last month
+                    </div>
+                </div>
+                <div class="stat-icon stat-orders">
+                    <i class="fas fa-shopping-bag"></i>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-info">
+                    <h3>Products</h3>
+                    <div class="stat-value">342</div>
+                    <div class="stat-change change-up">
+                        <i class="fas fa-arrow-up"></i> 5 new this week
+                    </div>
+                </div>
+                <div class="stat-icon stat-products">
+                    <i class="fas fa-shoe-prints"></i>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-info">
+                    <h3>Customers</h3>
+                    <div class="stat-value">1,284</div>
+                    <div class="stat-change change-down">
+                        <i class="fas fa-arrow-down"></i> 2.1% from last month
+                    </div>
+                </div>
+                <div class="stat-icon stat-customers">
+                    <i class="fas fa-users"></i>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Charts Section -->
+        <div class="charts-section">
+            <div class="chart-card">
+                <div class="chart-header">
+                    <h2 class="chart-title">Sales Overview</h2>
+                    <div class="chart-period">
+                        <button class="period-btn active">Week</button>
+                        <button class="period-btn">Month</button>
+                        <button class="period-btn">Year</button>
+                    </div>
+                </div>
+                <div class="chart-placeholder">
+                    Sales Chart Would Appear Here
+                </div>
+            </div>
+            
+            <div class="chart-card">
+                <div class="chart-header">
+                    <h2 class="chart-title">Revenue Sources</h2>
+                </div>
+                <div class="chart-placeholder">
+                    Revenue Pie Chart Would Appear Here
+                </div>
+            </div>
+        </div>
+        
+        <!-- Recent Activity Section -->
+        <div class="activity-section">
+            <div class="activity-card">
+                <div class="activity-header">
+                    <h2 class="activity-title">Recent Orders</h2>
+                    <a href="/admin/orders" class="view-all">View All</a>
+                </div>
+                <div class="activity-list">
+                    <div class="order-item">
+                        <img src="https://images.unsplash.com/photo-1600269452121-4f2416e55c28?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Nike Air Max" class="order-image">
+                        <div>
+                            <div class="order-product">Nike Air Max 270</div>
+                            <div class="order-id">Order #SM-98765</div>
+                        </div>
+                        <span class="order-status status-delivered">Delivered</span>
+                    </div>
+                    
+                    <div class="order-item">
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Adidas Ultraboost" class="order-image">
+                        <div>
+                            <div class="order-product">Adidas Ultraboost</div>
+                            <div class="order-id">Order #SM-98764</div>
+                        </div>
+                        <span class="order-status status-shipped">Shipped</span>
+                    </div>
+                    
+                    <div class="order-item">
+                        <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="Puma RS-X" class="order-image">
+                        <div>
+                            <div class="order-product">Puma RS-X</div>
+                            <div class="order-id">Order #SM-98763</div>
+                        </div>
+                        <span class="order-status status-processing">Processing</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="activity-card">
+                <div class="activity-header">
+                    <h2 class="activity-title">Recent Activity</h2>
+                    <a href="/admin/activity" class="view-all">View All</a>
+                </div>
+                <div class="activity-list">
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-shopping-bag"></i>
+                        </div>
+                        <div class="activity-details">
+                            <p class="activity-message">New order #SM-98765 placed by John Doe</p>
+                            <p class="activity-time">10 minutes ago</p>
+                        </div>
+                    </div>
+                    
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <div class="activity-details">
+                            <p class="activity-message">New customer registration: Sarah Smith</p>
+                            <p class="activity-time">45 minutes ago</p>
+                        </div>
+                    </div>
+                    
+                    <div class="activity-item">
+                        <div class="activity-icon">
+                            <i class="fas fa-shoe-prints"></i>
+                        </div>
+                        <div class="activity-details">
+                            <p class="activity-message">Product "Nike Air Max 270" was updated</p>
+                            <p class="activity-time">2 hours ago</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Chart period switching
+        document.querySelectorAll('.period-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.period-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                // In a real implementation, this would update the chart data
+            });
+        });
+        
+        // New product button
+        document.querySelector('.admin-btn-primary').addEventListener('click', function() {
+            window.location.href = '/owners/admin/create/product';
+        });
+    </script>
+</body>
+</html>

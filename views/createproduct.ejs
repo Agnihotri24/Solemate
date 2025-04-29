@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Product - SoleMate Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #ff6b6b;
+            --secondary-color: #4ecdc4;
+            --dark-color: #292f36;
+            --light-color: #f7fff7;
+            --accent-color: #ffd166;
+            --sidebar-width: 250px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: var(--dark-color);
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        /* Sidebar Styles */
+        .admin-sidebar {
+            width: var(--sidebar-width);
+            background-color: var(--dark-color);
+            color: var(--light-color);
+            padding: 1.5rem 0;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0 1.5rem 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .logo i {
+            font-size: 1.8rem;
+            color: var(--secondary-color);
+        }
+        
+        .logo h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: var(--primary-color);
+        }
+        
+        .admin-nav {
+            padding: 1.5rem 0;
+        }
+        
+        .admin-nav a {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.8rem 1.5rem;
+            color: var(--light-color);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .admin-nav a:hover, .admin-nav a.active {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--secondary-color);
+        }
+        
+        .admin-nav a i {
+            width: 24px;
+            text-align: center;
+        }
+        
+        /* Main Content */
+        .admin-main {
+            flex: 1;
+            padding: 2rem;
+        }
+        
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+        
+        .admin-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .admin-user {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .admin-user img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        /* Product Form */
+        .product-form {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .form-section {
+            margin-bottom: 2rem;
+        }
+        
+        .form-section h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary-color);
+            color: var(--dark-color);
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 2px rgba(78, 205, 196, 0.2);
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+        
+        /* Image Upload */
+        .image-upload {
+            border: 2px dashed #ddd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .image-upload:hover {
+            border-color: var(--secondary-color);
+        }
+        
+        .image-upload i {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .image-upload p {
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+        
+        .image-upload small {
+            color: #999;
+            font-size: 0.8rem;
+        }
+        
+        .image-preview {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .preview-item {
+            position: relative;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+        
+        .preview-item img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+        }
+        
+        .preview-item button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s;
+        }
+        
+        .preview-item:hover button {
+            opacity: 1;
+        }
+        
+        /* Size and Color Options */
+        .option-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .option-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: #f5f5f5;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .option-item button {
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            cursor: pointer;
+        }
+        
+        .add-option {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+        
+        .add-option input {
+            flex: 1;
+            padding: 0.5rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+        }
+        
+        .add-option button {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 0 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .add-option button:hover {
+            background-color: #3bb9af;
+        }
+        
+        /* Color Swatches */
+        .color-swatch {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 1px solid #ddd;
+        }
+        
+        /* Submit Button */
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            width: 100%;
+        }
+        
+        .submit-btn:hover {
+            background-color: #ff5252;
+            transform: translateY(-2px);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            
+            .admin-sidebar {
+                width: 100%;
+                height: auto;
+                position: static;
+            }
+            
+            .admin-nav {
+                display: flex;
+                overflow-x: auto;
+                padding: 0;
+            }
+            
+            .admin-nav a {
+                padding: 1rem;
+                white-space: nowrap;
+            }
+            
+            .admin-main {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <aside class="admin-sidebar">
+        <div class="logo">
+            <i class="fas fa-shoe-prints"></i>
+            <h1>Sole<span>Mate</span></h1>
+        </div>
+        
+        <nav class="admin-nav">
+            <a href="/owners/admin">
+                <i class="fas fa-tachometer-alt"></i>
+                Dashboard
+            </a>
+            <a href="/owners/admin/create/product" class="active">
+                <i class="fas fa-plus-circle"></i>
+                Create Product
+            </a>
+            <a href="/admin/orders">
+                <i class="fas fa-shopping-bag"></i>
+                Orders
+            </a>
+            <a href="/admin/customers">
+                <i class="fas fa-users"></i>
+                Customers
+            </a>
+            <a href="/admin/logout">
+                <i class="fas fa-sign-out-alt"></i>
+                Logout
+            </a>
+        </nav>
+    </aside>
+    
+    <!-- Main Content -->
+    <main class="admin-main">
+        <div class="admin-header">
+            <h1 class="admin-title">Create New Product</h1>
+            <div class="admin-user">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Admin">
+                <span>Admin</span>
+            </div>
+        </div>
+        
+        <form class="product-form" action="/products/create" method="POST" enctype="multipart/form-data">
+            <!-- Basic Information Section -->
+            <div class="form-section">
+                <h3>Basic Information</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="name">Product Name</label>
+                        <input type="text" id="name" name="name" required placeholder="e.g., Air Max 270 React">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="brand">Brand</label>
+                        <select id="brand" name="brand" required>
+                            <option value="">Select Brand</option>
+                            <option value="Nike">Nike</option>
+                            <option value="Adidas">Adidas</option>
+                            <option value="Puma">Puma</option>
+                            <option value="Reebok">Reebok</option>
+                            <option value="Vans">Vans</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label for="description">Product Description</label>
+                        <textarea id="description" name="description" required placeholder="Describe the product features and benefits"></textarea>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pricing Section -->
+            <div class="form-section">
+                <h3>Pricing</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="price">Price ($)</label>
+                        <input type="number" id="price" name="price" min="0" step="0.01" required placeholder="99.99">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="discount">Discount (%)</label>
+                        <input type="number" id="discount" name="discount" min="0" max="100" placeholder="0">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cost-price">Cost Price ($)</label>
+                        <input type="number" id="cost-price" name="cost-price" min="0" step="0.01" placeholder="For internal use">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="sku">SKU</label>
+                        <input type="text" id="sku" name="sku" placeholder="Product identifier">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Inventory Section -->
+            <div class="form-section">
+                <h3>Inventory</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="quantity">Stock Quantity</label>
+                        <input type="number" id="quantity" name="quantity" min="0" required placeholder="100">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <select id="category" name="category" required>
+                            <option value="">Select Category</option>
+                            <option value="Sneakers">Sneakers</option>
+                            <option value="Running">Running</option>
+                            <option value="Casual">Casual</option>
+                            <option value="Athletic">Athletic</option>
+                            <option value="Formal">Formal</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Available Sizes</label>
+                        <div class="option-list" id="size-list">
+                            <!-- Sizes will be added here dynamically -->
+                        </div>
+                        <div class="add-option">
+                            <input type="text" id="new-size" placeholder="Add size (e.g., 9)">
+                            <button type="button" id="add-size">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Available Colors</label>
+                        <div class="option-list" id="color-list">
+                            <!-- Colors will be added here dynamically -->
+                        </div>
+                        <div class="add-option">
+                            <input type="text" id="new-color" placeholder="Add color (e.g., Red)">
+                            <button type="button" id="add-color">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Media Section -->
+            <div class="form-section">
+                <h3>Product Images</h3>
+                <div class="form-group full-width">
+                    <label for="images">Upload Product Images</label>
+                    <div class="image-upload" id="image-upload">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Drag & drop images here or click to browse</p>
+                        <small>Recommended size: 800x800px, Max file size: 5MB</small>
+                        <input type="file" id="images" name="images" multiple accept="image/*" style="display: none;">
+                    </div>
+                    <div class="image-preview" id="image-preview">
+                        <!-- Preview images will appear here -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional Information -->
+            <div class="form-section">
+                <h3>Additional Information</h3>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="weight">Weight (kg)</label>
+                        <input type="number" id="weight" name="weight" min="0" step="0.1" placeholder="0.5">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="material">Material</label>
+                        <input type="text" id="material" name="material" placeholder="e.g., Leather, Mesh">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="origin">Country of Origin</label>
+                        <input type="text" id="origin" name="origin" placeholder="e.g., China">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="status">Status</label>
+                        <select id="status" name="status">
+                            <option value="active">Active</option>
+                            <option value="draft">Draft</option>
+                            <option value="archived">Archived</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <button type="submit" class="submit-btn">
+                <i class="fas fa-save"></i> Create Product
+            </button>
+        </form>
+    </main>
+
+    <script>
+        // Image upload functionality
+        const imageUpload = document.getElementById('image-upload');
+        const fileInput = document.getElementById('images');
+        const imagePreview = document.getElementById('image-preview');
+        
+        imageUpload.addEventListener('click', () => fileInput.click());
+        
+        fileInput.addEventListener('change', function() {
+            imagePreview.innerHTML = '';
+            
+            if (this.files && this.files.length > 0) {
+                for (let i = 0; i < this.files.length; i++) {
+                    const reader = new FileReader();
+                    
+                    reader.onload = function(e) {
+                        const previewItem = document.createElement('div');
+                        previewItem.className = 'preview-item';
+                        
+                        previewItem.innerHTML = `
+                            <img src="${e.target.result}" alt="Preview">
+                            <button type="button" data-index="${i}">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        `;
+                        
+                        imagePreview.appendChild(previewItem);
+                        
+                        // Add remove functionality
+                        previewItem.querySelector('button').addEventListener('click', function() {
+                            previewItem.remove();
+                            // In a real implementation, you would also remove the file from the FileList
+                        });
+                    }
+                    
+                    reader.readAsDataURL(this.files[i]);
+                }
+            }
+        });
+        
+        // Drag and drop functionality
+        imageUpload.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            imageUpload.style.borderColor = 'var(--secondary-color)';
+        });
+        
+        imageUpload.addEventListener('dragleave', () => {
+            imageUpload.style.borderColor = '#ddd';
+        });
+        
+        imageUpload.addEventListener('drop', (e) => {
+            e.preventDefault();
+            imageUpload.style.borderColor = '#ddd';
+            fileInput.files = e.dataTransfer.files;
+            fileInput.dispatchEvent(new Event('change'));
+        });
+        
+        // Size and color management
+        const sizeList = document.getElementById('size-list');
+        const colorList = document.getElementById('color-list');
+        const addSizeBtn = document.getElementById('add-size');
+        const addColorBtn = document.getElementById('add-color');
+        const newSizeInput = document.getElementById('new-size');
+        const newColorInput = document.getElementById('new-color');
+        
+        addSizeBtn.addEventListener('click', function() {
+            const sizeValue = newSizeInput.value.trim();
+            if (sizeValue) {
+                const sizeItem = document.createElement('div');
+                sizeItem.className = 'option-item';
+                sizeItem.innerHTML = `
+                    ${sizeValue}
+                    <button type="button">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <input type="hidden" name="sizes[]" value="${sizeValue}">
+                `;
+                
+                sizeList.appendChild(sizeItem);
+                newSizeInput.value = '';
+                
+                // Add remove functionality
+                sizeItem.querySelector('button').addEventListener('click', function() {
+                    sizeItem.remove();
+                });
+            }
+        });
+        
+        addColorBtn.addEventListener('click', function() {
+            const colorValue = newColorInput.value.trim();
+            if (colorValue) {
+                const colorItem = document.createElement('div');
+                colorItem.className = 'option-item';
+                colorItem.innerHTML = `
+                    <div class="color-swatch"></div>
+                    ${colorValue}
+                    <button type="button">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <input type="hidden" name="colors[]" value="${colorValue}">
+                `;
+                
+                colorList.appendChild(colorItem);
+                newColorInput.value = '';
+                
+                // Add remove functionality
+                colorItem.querySelector('button').addEventListener('click', function() {
+                    colorItem.remove();
+                });
+            }
+        });
+        
+        // Allow adding options with Enter key
+        newSizeInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                addSizeBtn.click();
+            }
+        });
+        
+        newColorInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                addColorBtn.click();
+            }
+        });
+    </script>
+</body>
+</html>

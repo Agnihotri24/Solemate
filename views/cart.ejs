@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart - SoleMate</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/stylesheet/cart.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="#" class="logo">
+            <i class="fas fa-shoe-prints"></i>
+            Sole<span>mate</span>
+        </a>
+        <div class="nav-links">
+            <a href="/users/shop"><i class="fas fa-arrow-left"></i> Back to Shop</a>
+            <a href="/users/profile"><i class="fas fa-user"></i> Profile</a>
+            <a href="/users/cart"><i class="fas fa-shopping-cart"></i> Cart <span class="cart-count">3</span></a>
+        </div>
+    </nav>
+    
+    <!-- Cart Container -->
+    <div class="cart-container">
+        <div class="cart-header">
+            <h1 class="cart-title">Your Shopping Cart</h1>
+            <a href="/users/shop" class="continue-shopping">
+                <i class="fas fa-arrow-left"></i> Continue Shopping
+            </a>
+        </div>
+        
+        <div class="cart-layout">
+            <!-- Cart Items -->
+            <div class="cart-items">
+                <!-- Cart Item 1 -->
+                <div class="cart-item">
+                    <img src="https://images.unsplash.com/photo-1600269452121-4f2416e55c28?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Nike Air Max 270" class="item-image">
+                    
+                    <div class="item-details">
+                        <div>
+                            <h3 class="item-name">Nike Air Max 270 React</h3>
+                            <p class="item-brand">Nike</p>
+                            <div class="item-size">
+                                <span>Size:</span>
+                                <strong>9</strong>
+                            </div>
+                            <div class="item-color">
+                                <span>Color:</span>
+                                <div class="item-color-swatch" style="background-color: #ff6b6b;"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="item-actions">
+                            <button class="remove-item">
+                                <i class="fas fa-trash"></i> Remove
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="item-price">
+                        <div>
+                            <span class="current-price">₹149.99</span>
+                            <span class="original-price">₹179.99</span>
+                        </div>
+                        
+                        <div class="quantity-control">
+                            <button class="quantity-btn minus">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <input type="number" value="1" min="1" class="quantity-input">
+                            <button class="quantity-btn plus">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cart Item 2 -->
+                <div class="cart-item">
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Adidas Ultraboost" class="item-image">
+                    
+                    <div class="item-details">
+                        <div>
+                            <h3 class="item-name">Adidas Ultraboost 21</h3>
+                            <p class="item-brand">Adidas</p>
+                            <div class="item-size">
+                                <span>Size:</span>
+                                <strong>8</strong>
+                            </div>
+                            <div class="item-color">
+                                <span>Color:</span>
+                                <div class="item-color-swatch" style="background-color: #292f36;"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="item-actions">
+                            <button class="remove-item">
+                                <i class="fas fa-trash"></i> Remove
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="item-price">
+                        <div>
+                            <span class="current-price">₹179.99</span>
+                            <span class="original-price">₹199.99</span>
+                        </div>
+                        
+                        <div class="quantity-control">
+                            <button class="quantity-btn minus">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <input type="number" value="1" min="1" class="quantity-input">
+                            <button class="quantity-btn plus">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cart Item 3 -->
+                <div class="cart-item">
+                    <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Puma RS-X" class="item-image">
+                    
+                    <div class="item-details">
+                        <div>
+                            <h3 class="item-name">Puma RS-X Reinvention</h3>
+                            <p class="item-brand">Puma</p>
+                            <div class="item-size">
+                                <span>Size:</span>
+                                <strong>10</strong>
+                            </div>
+                            <div class="item-color">
+                                <span>Color:</span>
+                                <div class="item-color-swatch" style="background-color: #4ecdc4;"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="item-actions">
+                            <button class="remove-item">
+                                <i class="fas fa-trash"></i> Remove
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="item-price">
+                        <div>
+                            <span class="current-price">₹89.99</span>
+                            <span class="original-price">₹109.99</span>
+                        </div>
+                        
+                        <div class="quantity-control">
+                            <button class="quantity-btn minus">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                            <input type="number" value="1" min="1" class="quantity-input">
+                            <button class="quantity-btn plus">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Order Summary -->
+            <div class="order-summary">
+                <h2 class="summary-title">Order Summary</h2>
+                
+                <div class="summary-row">
+                    <span class="summary-label">Subtotal</span>
+                    <span class="summary-value">₹419.97</span>
+                </div>
+                
+                <div class="summary-row">
+                    <span class="summary-label">Shipping</span>
+                    <span class="summary-value">Free</span>
+                </div>
+                
+                <div class="summary-row">
+                    <span class="summary-label">Tax</span>
+                    <span class="summary-value">₹33.60</span>
+                </div>
+                
+                <div class="summary-row total-row">
+                    <span class="summary-label">Total</span>
+                    <span class="summary-value">₹453.57</span>
+                </div>
+                
+                <button class="checkout-btn">
+                    <i class="fas fa-lock"></i> Proceed to Checkout
+                </button>
+            </div>
+        </div>
+        
+        <!-- Empty Cart State (Hidden by default) -->
+        <!-- <div class="empty-cart">
+            <div class="empty-cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+            </div>
+            <h2 class="empty-cart-message">Your cart is empty</h2>
+            <a href="#" class="shop-now-btn">Shop Now</a>
+        </div> -->
+    </div>
+
+    <script>
+        // Quantity controls
+        document.querySelectorAll('.quantity-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('.quantity-input');
+                let value = parseInt(input.value);
+                
+                if (this.classList.contains('minus') && value > 1) {
+                    input.value = value - 1;
+                } else if (this.classList.contains('plus')) {
+                    input.value = value + 1;
+                }
+                
+                // In a real implementation, you would update the cart total here
+            });
+        });
+        
+        // Remove item functionality
+        document.querySelectorAll('.remove-item').forEach(button => {
+            button.addEventListener('click', function() {
+                const cartItem = this.closest('.cart-item');
+                cartItem.style.opacity = '0';
+                setTimeout(() => {
+                    cartItem.remove();
+                    // In a real implementation, you would update the cart count and total
+                    
+                    // Show empty cart if no items left
+                    if (document.querySelectorAll('.cart-item').length === 0) {
+                        document.querySelector('.cart-items').style.display = 'none';
+                        document.querySelector('.order-summary').style.display = 'none';
+                        document.querySelector('.empty-cart').style.display = 'block';
+                    }
+                }, 300);
+            });
+        });
+        
+        // Checkout button
+        document.querySelector('.checkout-btn').addEventListener('click', function() {
+            alert('Proceeding to checkout!');
+            // In a real implementation, this would redirect to checkout page
+        });
+    </script>
+</body>
+</html>

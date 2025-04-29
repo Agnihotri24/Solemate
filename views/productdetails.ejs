@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nike Air Max 270 - SoleMate</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   <link rel="stylesheet" href="/stylesheet/productdetails.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="#" class="logo">
+            <i class="fas fa-shoe-prints"></i>
+            Sole<span>mate</span>
+        </a>
+        <div class="nav-links">
+            <a href="/users/shop"><i class="fas fa-arrow-left"></i> Back to Shop</a>
+            <a href="#"><i class="fas fa-user"></i> Profile</a>
+            <a href="#"><i class="fas fa-shopping-cart"></i> Cart <span class="cart-count">3</span></a>
+        </div>
+    </nav>
+    
+    <!-- Product Detail Container -->
+    <div class="product-detail-container">
+        <div class="product-detail">
+            <!-- Product Gallery -->
+            <div class="product-gallery">
+                <span class="product-badge">New Arrival</span>
+                <img src="https://images.unsplash.com/photo-1600269452121-4f2416e55c28?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Nike Air Max 270" class="main-image">
+                
+            </div>
+            
+            <!-- Product Info -->
+            <div class="product-info">
+                <span class="product-brand">Nike</span>
+                <h1 class="product-title">Air Max 270 React</h1>
+                
+                <div class="product-price">
+                    <span class="current-price">₹149.99</span>
+                    <span class="original-price">₹179.99</span>
+                    <span class="discount">17% OFF</span>
+                </div>
+                
+                <div class="product-rating">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <span class="review-count">(128 reviews)</span>
+                </div>
+                
+                <p class="product-description">
+                    The Nike Air Max 270 React combines the oversized Air unit from the Air Max 270 with Nike React foam technology for all-day comfort. The design draws inspiration from Air Max icons, showcasing Nike's greatest innovation with its large window and fresh array of colors.
+                </p>
+                
+                <!-- Size Selector -->
+                <div class="size-selector">
+                    <span class="size-title">Select Size</span>
+                    <div class="size-options">
+                        <div class="size-option">7</div>
+                        <div class="size-option">8</div>
+                        <div class="size-option selected">9</div>
+                        <div class="size-option">10</div>
+                        <div class="size-option">11</div>
+                    </div>
+                </div>
+                
+                <!-- Color Selector -->
+                <div class="color-selector">
+                    <span class="color-title">Available Colors</span>
+                    <div class="color-options">
+                        <div class="color-option selected" style="background-color: #ff6b6b;"></div>
+                        <div class="color-option" style="background-color: #292f36;"></div>
+                        <div class="color-option" style="background-color: #4ecdc4;"></div>
+                        <div class="color-option" style="background-color: #f7fff7; border: 1px solid #ddd;"></div>
+                    </div>
+                </div>
+                
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button class="btn btn-primary">
+                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                    </button>
+                    <button class="btn btn-secondary">
+                        <i class="fas fa-heart"></i>
+                    </button>
+                </div>
+                
+               
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Thumbnail click functionality
+        const thumbnails = document.querySelectorAll('.thumbnail');
+        const mainImage = document.querySelector('.main-image');
+        
+        thumbnails.forEach(thumbnail => {
+            thumbnail.addEventListener('click', function() {
+                // Remove active class from all thumbnails
+                thumbnails.forEach(t => t.classList.remove('active'));
+                
+                // Add active class to clicked thumbnail
+                this.classList.add('active');
+                
+                // Change main image source
+                mainImage.src = this.src.replace('200', '800');
+            });
+        });
+        
+        // Size selection functionality
+        const sizeOptions = document.querySelectorAll('.size-option');
+        
+        sizeOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                sizeOptions.forEach(o => o.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+        });
+        
+        // Color selection functionality
+        const colorOptions = document.querySelectorAll('.color-option');
+        
+        colorOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                colorOptions.forEach(o => o.classList.remove('selected'));
+                this.classList.add('selected');
+            });
+        });
+        
+        // Add to cart functionality
+        const addToCartBtn = document.querySelector('.btn-primary');
+        addToCartBtn.addEventListener('click', function() {
+            alert('Added to cart!');
+            // In a real implementation, you would update the cart count
+        });
+    </script>
+</body>
+</html>

@@ -12,7 +12,7 @@ productSchema = mongoose.Schema({
         default : 0
     },
     productimage : {
-        type : String,
+        type : Buffer
     },
     productname : {
         type : String
@@ -20,9 +20,8 @@ productSchema = mongoose.Schema({
     productdescription : {
         type: String
     },
-    panelcolor : String,
-    bgcolor : String,
-    textcolor : String
+    brand : String,
+
 
 });
 

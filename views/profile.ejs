@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/stylesheet/profile.css">
 </head>
 <body>
+
     <!-- Navbar -->
     <nav class="navbar">
         <a href="#" class="logo">
@@ -21,6 +22,7 @@
         </div>
     </nav>
     
+    
     <!-- Profile Container -->
     <div class="profile-container">
         <div class="profile-header">
@@ -31,15 +33,15 @@
             <!-- Profile Sidebar -->
             <div class="profile-sidebar">
                 <div class="profile-card">
-                    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Profile" class="profile-avatar">
-                    <h2 class="profile-name">Sarah Johnson</h2>
-                    <p class="profile-email">sarah.johnson@example.com</p>
+                    <img src="https://static.vecteezy.com/system/resources/previews/005/129/844/large_2x/profile-user-icon-isolated-on-white-background-eps10-free-vector.jpg" alt="Profile" class="profile-avatar">
+                    <h2 class="profile-name"> <%= user.name %> </h2>
+                    <p class="profile-email"><%= user.email %></p>
                 </div>
                 
                 <ul class="profile-menu">
                     <li><a href="#" class="active"><i class="fas fa-user"></i> Personal Info</a></li>
                     <li><a href="#"><i class="fas fa-box"></i> Order History</a></li>
-                    <li><a href="#"><i class="fas fa-heart"></i> Wishlist</a></li>
+
                     <li><a href="#"><i class="fas fa-map-marker-alt"></i> Address Book</a></li>
                     <li><a href="#"><i class="fas fa-lock"></i> Change Password</a></li>
                     <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
@@ -58,38 +60,38 @@
                 <div class="personal-info">
                     <div class="info-group">
                         <span class="info-label">First Name</span>
-                        <div class="info-value">Sarah</div>
+                        <div class="info-value"><%= user.name.split(' ')[0] %></div>
                     </div>
                     
                     <div class="info-group">
                         <span class="info-label">Last Name</span>
-                        <div class="info-value">Johnson</div>
+                        <div class="info-value"><%= user.name.split(' ')[1] %></div>
                     </div>
                     
                     <div class="info-group">
                         <span class="info-label">Email</span>
-                        <div class="info-value">sarah.johnson@example.com</div>
+                        <div class="info-value"><%= user.email %></div>
                     </div>
                     
                     <div class="info-group">
                         <span class="info-label">Phone Number</span>
-                        <div class="info-value">(555) 123-4567</div>
+                        <div class="info-value"><%= user.mobile %></div>
                     </div>
                     
                     <div class="info-group">
                         <span class="info-label">Date of Birth</span>
-                        <div class="info-value">March 15, 1990</div>
+                        <div class="info-value">Jan 1, 2000</div>
                     </div>
                     
                     <div class="info-group">
                         <span class="info-label">Gender</span>
-                        <div class="info-value">Female</div>
+                        <div class="info-value">male</div>
                     </div>
                 </div>
             </div>
             
             <!-- Profile Content - Order History (Hidden) -->
-            <!-- <div class="profile-content" style="display: none;">
+             <div class="profile-content" style="display: none;">
                 <div class="content-header">
                     <h2 class="content-title">Order History</h2>
                 </div>
@@ -157,80 +159,13 @@
                         </div>
                     </div>
                 </div>
-            </div> -->
+            </div> 
             
-            <!-- Profile Content - Wishlist (Hidden) -->
-            <!-- <div class="profile-content" style="display: none;">
-                <div class="content-header">
-                    <h2 class="content-title">My Wishlist (3 items)</h2>
-                </div>
-                
-                <div class="wishlist-grid">
-                    <div class="wishlist-item">
-                        <img src="https://images.unsplash.com/photo-1600269452121-4f2416e55c28?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Nike Air Max 270" class="wishlist-image">
-                        <div class="wishlist-details">
-                            <div class="wishlist-product">Nike Air Max 270 React</div>
-                            <div class="wishlist-brand">Nike</div>
-                            <div class="wishlist-price">
-                                <span class="wishlist-current">$149.99</span>
-                                <span class="wishlist-original">$179.99</span>
-                            </div>
-                            <div class="wishlist-actions">
-                                <button class="wishlist-btn wishlist-btn-primary">
-                                    <i class="fas fa-shopping-cart"></i> Add to Cart
-                                </button>
-                                <button class="wishlist-btn wishlist-btn-secondary">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="wishlist-item">
-                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Adidas Ultraboost" class="wishlist-image">
-                        <div class="wishlist-details">
-                            <div class="wishlist-product">Adidas Ultraboost 21</div>
-                            <div class="wishlist-brand">Adidas</div>
-                            <div class="wishlist-price">
-                                <span class="wishlist-current">$179.99</span>
-                                <span class="wishlist-original">$199.99</span>
-                            </div>
-                            <div class="wishlist-actions">
-                                <button class="wishlist-btn wishlist-btn-primary">
-                                    <i class="fas fa-shopping-cart"></i> Add to Cart
-                                </button>
-                                <button class="wishlist-btn wishlist-btn-secondary">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="wishlist-item">
-                        <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Puma RS-X" class="wishlist-image">
-                        <div class="wishlist-details">
-                            <div class="wishlist-product">Puma RS-X Reinvention</div>
-                            <div class="wishlist-brand">Puma</div>
-                            <div class="wishlist-price">
-                                <span class="wishlist-current">$89.99</span>
-                                <span class="wishlist-original">$109.99</span>
-                            </div>
-                            <div class="wishlist-actions">
-                                <button class="wishlist-btn wishlist-btn-primary">
-                                    <i class="fas fa-shopping-cart"></i> Add to Cart
-                                </button>
-                                <button class="wishlist-btn wishlist-btn-secondary">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
+          
             
             <!-- Profile Content - Address Book (Hidden) -->
-            <!-- <div class="profile-content" style="display: none;">
-                <div class="content-header">
+            <div class="profile-content" style="display: none;">
+                <div class="content-header" >
                     <h2 class="content-title">Address Book</h2>
                     <button class="edit-btn">
                         <i class="fas fa-plus"></i> Add New Address
@@ -279,7 +214,7 @@
                         </div>
                     </div>
                 </div>
-            </div> -->
+            </div> 
         </div>
     </div>
 

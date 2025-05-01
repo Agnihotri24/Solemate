@@ -1,139 +1,146 @@
-/* SoleMate Admin Create Product CSS */
-/* Font Import and Base Styles */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
 :root {
-  --primary: #6C63FF;
-  --secondary: #FF6584;
-  --dark: #2D3748;
-  --light: #F7FAFC;
-  --gray: #E2E8F0;
-  --success: #48BB78;
-  --error: #F56565;
-  --border-radius: 8px;
-  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --transition: all 0.3s ease;
+  --primary-color: #ff6b6b;
+  --secondary-color: #4ecdc4;
+  --dark-color: #292f36;
+  --light-color: #f7fff7;
+  --accent-color: #ffd166;
+  --sidebar-width: 250px;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
-  background-color: #F5F7FA;
-  color: var(--dark);
-  line-height: 1.6;
+  background-color: #f5f5f5;
+  color: var(--dark-color);
+  display: flex;
+  min-height: 100vh;
 }
 
-/* Header Styles */
-.admin-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background-color: white;
-  box-shadow: var(--shadow);
+/* Sidebar Styles */
+.admin-sidebar {
+  width: var(--sidebar-width);
+  background-color: var(--dark-color);
+  color: var(--light-color);
+  padding: 1.5rem 0;
+  height: 100vh;
   position: sticky;
   top: 0;
-  z-index: 100;
 }
 
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 0.75rem;
+  padding: 0 1.5rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .logo i {
   font-size: 1.8rem;
-  color: var(--secondary);
+  color: var(--secondary-color);
 }
 
 .logo h1 {
+  font-family: "Playfair Display", serif;
   font-size: 1.5rem;
   font-weight: 700;
 }
 
 .logo span {
-  color: var(--primary);
+  color: var(--primary-color);
 }
 
 .admin-nav {
-  display: flex;
-  gap: 1.5rem;
+  padding: 1.5rem 0;
 }
 
 .admin-nav a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.8rem 1.5rem;
+  color: var(--light-color);
   text-decoration: none;
-  color: var(--dark);
-  font-weight: 500;
-  padding: 0.5rem 1rem;
-  border-radius: var(--border-radius);
-  transition: var(--transition);
-  position: relative;
+  transition: all 0.3s;
 }
 
-.admin-nav a:hover {
-  color: var(--primary);
-  background-color: rgba(108, 99, 255, 0.1);
+.admin-nav a:hover,
+.admin-nav a.active {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--secondary-color);
 }
 
-.admin-nav a::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 2px;
-  background-color: var(--primary);
-  transition: var(--transition);
+.admin-nav a i {
+  width: 24px;
+  text-align: center;
 }
 
-.admin-nav a:hover::after {
-  width: 70%;
-}
-
-/* Main Content Styles */
-.admin-content {
-  max-width: 800px;
-  margin: 2rem auto;
+/* Main Content */
+.admin-main {
+  flex: 1;
   padding: 2rem;
-  background-color: white;
-  border-radius: var(--border-radius);
-  box-shadow: var(--shadow);
 }
 
-.admin-content h2 {
-  color: var(--dark);
-  margin-bottom: 1.5rem;
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--secondary-color);
+}
+
+.admin-title {
+  font-family: "Playfair Display", serif;
   font-size: 1.8rem;
-  position: relative;
-  padding-bottom: 0.5rem;
+  font-weight: 700;
 }
 
-.admin-content h2::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 60px;
-  height: 3px;
-  background: linear-gradient(to right, var(--primary), var(--secondary));
+.admin-user {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.admin-content h3 {
-  color: var(--primary);
-  margin: 1.5rem 0 1rem;
+.admin-user img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Product Form */
+.product-form {
+  background-color: white;
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.form-section {
+  margin-bottom: 2rem;
+}
+
+.form-section h3 {
   font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--secondary-color);
+  color: var(--dark-color);
 }
 
-/* Form Styles */
-form {
-  margin-top: 1.5rem;
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
 }
 
 .form-group {
@@ -144,27 +151,26 @@ form {
   display: block;
   margin-bottom: 0.5rem;
   font-weight: 500;
-  color: var(--dark);
+  color: var(--dark-color);
 }
 
-.form-group input[type="text"],
-.form-group input[type="number"],
-.form-group textarea,
-.form-group input[type="file"] {
+.form-group input,
+.form-group select,
+.form-group textarea {
   width: 100%;
   padding: 0.8rem 1rem;
-  border: 1px solid var(--gray);
-  border-radius: var(--border-radius);
-  font-size: 1rem;
-  transition: var(--transition);
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  transition: all 0.3s;
 }
 
-.form-group input[type="text"]:focus,
-.form-group input[type="number"]:focus,
+.form-group input:focus,
+.form-group select:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2);
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 2px rgba(78, 205, 196, 0.2);
 }
 
 .form-group textarea {
@@ -172,80 +178,194 @@ form {
   resize: vertical;
 }
 
-/* File Input Styling */
-.form-group input[type="file"] {
-  padding: 0.5rem;
-  border: 1px dashed var(--gray);
-  background-color: var(--light);
+.form-group.full-width {
+  grid-column: 1 / -1;
 }
 
-.form-group input[type="file"]::file-selector-button {
-  padding: 0.5rem 1rem;
-  background-color: var(--gray);
-  border: none;
-  border-radius: 4px;
+/* Image Upload */
+.image-upload {
+  border: 2px dashed #ddd;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
   cursor: pointer;
-  transition: var(--transition);
-  margin-right: 1rem;
+  transition: all 0.3s;
 }
 
-.form-group input[type="file"]::file-selector-button:hover {
-  background-color: #D1D5DB;
+.image-upload:hover {
+  border-color: var(--secondary-color);
 }
 
-/* Submit Button (Add to your HTML) */
-.submit-btn {
-  display: inline-block;
-  background: linear-gradient(to right, var(--primary), var(--secondary));
+.image-upload i {
+  font-size: 2rem;
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+}
+
+.image-upload p {
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.image-upload small {
+  color: #999;
+  font-size: 0.8rem;
+}
+
+.image-preview {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.preview-item {
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.preview-item img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+}
+
+.preview-item button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
   color: white;
-  padding: 0.8rem 2rem;
   border: none;
-  border-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.preview-item:hover button {
+  opacity: 1;
+}
+
+/* Size and Color Options */
+.option-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.option-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #f5f5f5;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.option-item button {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+.add-option {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.add-option input {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+}
+
+.add-option button {
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  padding: 0 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.add-option button:hover {
+  background-color: #3bb9af;
+}
+
+/* Color Swatches */
+.color-swatch {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+}
+
+/* Submit Button */
+.submit-btn {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: var(--transition);
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
   margin-top: 1rem;
-  box-shadow: var(--shadow);
+  width: 100%;
 }
 
 .submit-btn:hover {
+  background-color: #ff5252;
   transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(108, 99, 255, 0.2);
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
-  .admin-header {
-    flex-direction: column;
-    padding: 1rem;
-  }
-  
-  .logo {
-    margin-bottom: 1rem;
-  }
-  
-  .admin-nav {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.5rem;
-  }
-  
-  .admin-content {
-    padding: 1.5rem;
-    margin: 1rem;
+@media (max-width: 992px) {
+  .form-grid {
+    grid-template-columns: 1fr;
   }
 }
 
-@media (max-width: 480px) {
-  .admin-nav {
+@media (max-width: 768px) {
+  body {
     flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
   }
-  
-  .admin-nav a {
+
+  .admin-sidebar {
     width: 100%;
-    text-align: center;
+    height: auto;
+    position: static;
+  }
+
+  .admin-nav {
+    display: flex;
+    overflow-x: auto;
+    padding: 0;
+  }
+
+  .admin-nav a {
+    padding: 1rem;
+    white-space: nowrap;
+  }
+
+  .admin-main {
+    padding: 1.5rem;
   }
 }

@@ -123,122 +123,44 @@
         
         <!-- Products Grid -->
         <main class="products">
-            <!-- Product Card 1 -->
-            <a href="/users/productdetails" style="text-decoration: none; color: inherit;">
-            <div class="product-card">
-                <span class="product-badge">New</span>
-                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
-                <img src="https://images.unsplash.com/photo-1600269452121-4f2416e55c28?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Nike Air Max" class="product-image">
-                <div class="product-info">
-                    <h3 class="product-name">Nike Air Max 270</h3>
-                    <p class="product-brand">Nike</p>
-                    <div class="product-price">
-                        <span class="current-price">₹149.99</span>
-                        <span class="original-price">₹179.99</span>
-                        <span class="discount">17% OFF</span>
-                    </div>
-                    <button class="add-to-cart">
-                        <i class="fas fa-shopping-cart"></i> Add to Cart
-                    </button>
-                </div>
-            </div>
-        </a>
+
+        <% productitems.reverse().forEach((product)=>{ %>
+             <!-- Product Card  -->
             
-            <!-- Product Card 2 -->
-                    <a href="/users/productdetails" style="text-decoration: none; color: inherit;">
             <div class="product-card">
-                <button class="wishlist-btn active"><i class="fas fa-heart"></i></button>
-                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Adidas Ultraboost" class="product-image">
+                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
+           <% if (product.productimage && product.productimage.data) { %>
+
+  <a href="/users/productdetails/<%= product._id %>">
+  <img 
+    src="data:<%= product.productimage.contentType %>;base64,<%= product.productimage.data.toString('base64') %>" 
+    alt="Product Image" 
+    class="product-image"
+  />
+<% } else { %>
+  <img 
+    src="/default-image.jpg" 
+    alt="Default Product" 
+    class="product-image"
+  />
+<% } %>
+</a>
                 <div class="product-info">
-                    <h3 class="product-name">Adidas Ultraboost 21</h3>
-                    <p class="product-brand">Adidas</p>
+                    <h3 class="product-name"><%= product.productname %></h3>
+                    <p class="product-brand"><%= product.brand %></p>
                     <div class="product-price">
-                        <span class="current-price">₹179.99</span>
-                        <span class="original-price">₹199.99</span>
-                        <span class="discount">10% OFF</span>
+                        <span class="current-price">₹<%= product.price - eval((product.price*product.discount)/100) %></span>
+                        <span class="original-price">₹<%= product.price %></span>
+                        <span class="discount"><%= product.discount %>% OFF</span>
                     </div>
                     <button class="add-to-cart">
                         <i class="fas fa-shopping-cart"></i> Add to Cart
                     </button>
                 </div>
             </div>
-            </a>
+         
+        <% }) %>
             
-            <!-- Product Card 3 -->
-             <a href="/users/productdetails" style="text-decoration: none; color: inherit;">
-            <div class="product-card">
-                <span class="product-badge">Bestseller</span>
-                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
-                <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Puma RS-X" class="product-image">
-                <div class="product-info">
-                    <h3 class="product-name">Puma RS-X Reinvention</h3>
-                    <p class="product-brand">Puma</p>
-                    <div class="product-price">
-                        <span class="current-price">₹89.99</span>
-                        <span class="original-price">₹109.99</span>
-                        <span class="discount">18% OFF</span>
-                    </div>
-                    <button class="add-to-cart">
-                        <i class="fas fa-shopping-cart"></i> Add to Cart
-                    </button>
-                </div>
-            </div>
-            </a>
-            <!-- Product Card 4 -->
-             <a href="/users/productdetails" style="text-decoration: none; color: inherit;">
-            <div class="product-card">
-                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
-                <img src="https://images.unsplash.com/photo-1600269452121-4f2416e55c28?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Reebok Classic" class="product-image">
-                <div class="product-info">
-                    <h3 class="product-name">Reebok Classic Leather</h3>
-                    <p class="product-brand">Reebok</p>
-                    <div class="product-price">
-                        <span class="current-price">₹74.99</span>
-                        <span class="original-price">₹89.99</span>
-                        <span class="discount">17% OFF</span>
-                    </div>
-                    <button class="add-to-cart">
-                        <i class="fas fa-shopping-cart"></i> Add to Cart
-                    </button>
-                </div>
-            </div>
-            </a>
-            <!-- Product Card 5 -->
-            <div class="product-card">
-                <span class="product-badge">Limited</span>
-                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
-                <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Vans Old Skool" class="product-image">
-                <div class="product-info">
-                    <h3 class="product-name">Vans Old Skool</h3>
-                    <p class="product-brand">Vans</p>
-                    <div class="product-price">
-                        <span class="current-price">₹59.99</span>
-                        <span class="original-price">₹69.99</span>
-                        <span class="discount">14% OFF</span>
-                    </div>
-                    <button class="add-to-cart">
-                        <i class="fas fa-shopping-cart"></i> Add to Cart
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Product Card 6 -->
-            <div class="product-card">
-                <button class="wishlist-btn"><i class="far fa-heart"></i></button>
-                <img src="https://images.unsplash.com/photo-1605408499391-6368c628ef42?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Nike Air Force" class="product-image">
-                <div class="product-info">
-                    <h3 class="product-name">Nike Air Force 1 '07</h3>
-                    <p class="product-brand">Nike</p>
-                    <div class="product-price">
-                        <span class="current-price">₹99.99</span>
-                        <span class="original-price">₹119.99</span>
-                        <span class="discount">17% OFF</span>
-                    </div>
-                    <button class="add-to-cart">
-                        <i class="fas fa-shopping-cart"></i> Add to Cart
-                    </button>
-                </div>
-            </div>
         </main>
     </div>
 

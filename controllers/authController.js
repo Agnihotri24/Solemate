@@ -59,7 +59,7 @@ module.exports.loginUser = async (req, res) => {
           // after login we have to set cookies with JWT and send with resonse and userprofile
           const token = gentokens(user);
           res.cookie("token", token);
-          res.render("shop");
+          res.redirect("/users/shop");
         } else {
           res.send("Invalid password");
         }

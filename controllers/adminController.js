@@ -1,8 +1,6 @@
 const ownerModel = require("../models/owner-model");
 const productModel = require("../models/product-model");
 
-const multer = require("multer");
-const storage = multer.memoryStorage();
 
 module.exports.createAdmin = async (req, res) => {
   let { name, email, password } = req.body;
@@ -28,19 +26,26 @@ catch(err)
 };
 
 
+
 module.exports.createProduct = async (req, res) => {
   try {
-    const { name, price, description, discount } = req.body;
-
+    const { name, brand, price, description, discount } = req.body;
+      const productimage = {
+        data: req.file.buffer,
+        contentType: req.file.mimetype,
+      };
     const newProduct = await productModel.create({
       productname : name,
       price,
+      productimage,
       discount,
+      brand,
       productdescription: description,
-      productImage: req.file.buffer, // because memory storage
+     
     });
 
     res.send("Product created successfully!");
+    res.render("/admin/create/product");
   } 
 
   catch (err) {

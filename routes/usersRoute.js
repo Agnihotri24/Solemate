@@ -14,6 +14,8 @@ const {
   productdetails,
   shop,
   cart,
+  addcart,
+  removecart,
 } = require("../controllers/userController");
 
 // acquire middleware
@@ -44,5 +46,9 @@ router.get("/shop", isloggedin, shop);
 router.get("/cart", isloggedin, cart);
 
 router.get("/profile", isloggedin, userprofile);
+
+router.get("/addcart/:id", isloggedin, addcart);
+
+router.get("/removecart/:id", isloggedin, removecart);
 
 module.exports = router;

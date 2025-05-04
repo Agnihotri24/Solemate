@@ -17,7 +17,9 @@ document.querySelectorAll(".wishlist-btn").forEach((button) => {
 // Add to cart functionality would go here
 document.querySelectorAll(".add-to-cart").forEach((button) => {
   button.addEventListener("click", function () {
-    alert("Added to cart!");
-    // In a real implementation, you would update the cart count
+    const productId = this.dataset.id;
+    // Redirect the browser—this issues a GET request to the URL:
+     window.location.href = `/users/addcart/${productId}`;
   });
 });
+

@@ -31,10 +31,13 @@ const userSchema = mongoose.Schema({
     type: Array,
     default: [],
   },
+  
   cart: {
-    type: Array,
-    default: [],
+    type: [mongoose.Schema.Types.ObjectId],
+    ref : 'product' ,
+    default : []
   },
+   
   useraddress: {
     type: AddressSchema,
   }

@@ -1,8 +1,11 @@
 const express = require("express");
 const router = express.Router();
 
-
-const { createAdmin } = require('../controllers/adminController');
+const {
+  createAdmin,
+  admin,
+  admincreateproduct,
+} = require("../controllers/adminController");
 
 
 if (process.env.NODE_ENV === "development") {
@@ -10,12 +13,10 @@ if (process.env.NODE_ENV === "development") {
 }
 
 
-router.get("/admin", (req, res) => {res.render("admin");});
+router.get("/admin", admin);
 
 
-router.get("/admin/create/product", (req, res) => {res.render("createproduct");});
-
-
+router.get("/admin/create/product", admincreateproduct);
 
 
 module.exports = router;

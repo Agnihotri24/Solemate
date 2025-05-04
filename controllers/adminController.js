@@ -2,6 +2,16 @@ const ownerModel = require("../models/owner-model");
 const productModel = require("../models/product-model");
 
 
+module.exports.admin = (req, res) => {
+  res.render("admin");
+};
+
+
+module.exports.admincreateproduct = (req, res) => {
+  res.render("createproduct");
+};
+
+
 module.exports.createAdmin = async (req, res) => {
   let { name, email, password } = req.body;
      try{

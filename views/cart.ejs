@@ -17,7 +17,7 @@
         <div class="nav-links">
             <a href="/users/shop"><i class="fas fa-arrow-left"></i> Back to Shop</a>
             <a href="/users/profile"><i class="fas fa-user"></i> Profile</a>
-            <a href="/users/cart"><i class="fas fa-shopping-cart"></i> Cart <span class="cart-count">3</span></a>
+            <a href="/users/cart"><i class="fas fa-shopping-cart"></i> Cart <span class="cart-count"><%= cartitems.length%></span></a>
         </div>
     </nav>
     
@@ -33,14 +33,18 @@
         <div class="cart-layout">
             <!-- Cart Items -->
             <div class="cart-items">
+
+            
                 <!-- Cart Item 1 -->
-                <div class="cart-item">
-                    <img src="https://images.unsplash.com/photo-1600269452121-4f2416e55c28?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Nike Air Max 270" class="item-image">
+
+            <%   cartitems.reverse().forEach((item)=> {  %>
+                    <div class="cart-item">
+                    <img src="data:<%= item.productimage.contentType %>;base64,<%= item.productimage.data.toString('base64') %>" alt="Nike Air Max 270" class="item-image">
                     
                     <div class="item-details">
                         <div>
-                            <h3 class="item-name">Nike Air Max 270 React</h3>
-                            <p class="item-brand">Nike</p>
+                            <h3 class="item-name"><%= item.productname %></h3>
+                            <p class="item-brand"><%= item.brand %></p>
                             <div class="item-size">
                                 <span>Size:</span>
                                 <strong>9</strong>
@@ -52,16 +56,17 @@
                         </div>
                         
                         <div class="item-actions">
-                            <button class="remove-item">
+                           <a href="/users/removecart/<%= item._id %>"> <button class="remove-item">
                                 <i class="fas fa-trash"></i> Remove
                             </button>
+                            </a>
                         </div>
                     </div>
                     
                     <div class="item-price">
                         <div>
-                            <span class="current-price">₹149.99</span>
-                            <span class="original-price">₹179.99</span>
+                            <span class="current-price">₹<%= item.price - eval((item.price*item.discount)/100) %></span>
+                            <span class="original-price">₹<%= item.price %></span>
                         </div>
                         
                         <div class="quantity-control">
@@ -75,92 +80,9 @@
                         </div>
                     </div>
                 </div>
+             <%  });  %>
                 
-                <!-- Cart Item 2 -->
-                <div class="cart-item">
-                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Adidas Ultraboost" class="item-image">
-                    
-                    <div class="item-details">
-                        <div>
-                            <h3 class="item-name">Adidas Ultraboost 21</h3>
-                            <p class="item-brand">Adidas</p>
-                            <div class="item-size">
-                                <span>Size:</span>
-                                <strong>8</strong>
-                            </div>
-                            <div class="item-color">
-                                <span>Color:</span>
-                                <div class="item-color-swatch" style="background-color: #292f36;"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="item-actions">
-                            <button class="remove-item">
-                                <i class="fas fa-trash"></i> Remove
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div class="item-price">
-                        <div>
-                            <span class="current-price">₹179.99</span>
-                            <span class="original-price">₹199.99</span>
-                        </div>
-                        
-                        <div class="quantity-control">
-                            <button class="quantity-btn minus">
-                                <i class="fas fa-minus"></i>
-                            </button>
-                            <input type="number" value="1" min="1" class="quantity-input">
-                            <button class="quantity-btn plus">
-                                <i class="fas fa-plus"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Cart Item 3 -->
-                <div class="cart-item">
-                    <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Puma RS-X" class="item-image">
-                    
-                    <div class="item-details">
-                        <div>
-                            <h3 class="item-name">Puma RS-X Reinvention</h3>
-                            <p class="item-brand">Puma</p>
-                            <div class="item-size">
-                                <span>Size:</span>
-                                <strong>10</strong>
-                            </div>
-                            <div class="item-color">
-                                <span>Color:</span>
-                                <div class="item-color-swatch" style="background-color: #4ecdc4;"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="item-actions">
-                            <button class="remove-item">
-                                <i class="fas fa-trash"></i> Remove
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div class="item-price">
-                        <div>
-                            <span class="current-price">₹89.99</span>
-                            <span class="original-price">₹109.99</span>
-                        </div>
-                        
-                        <div class="quantity-control">
-                            <button class="quantity-btn minus">
-                                <i class="fas fa-minus"></i>
-                            </button>
-                            <input type="number" value="1" min="1" class="quantity-input">
-                            <button class="quantity-btn plus">
-                                <i class="fas fa-plus"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
+  
             </div>
             
             <!-- Order Summary -->
@@ -169,7 +91,7 @@
                 
                 <div class="summary-row">
                     <span class="summary-label">Subtotal</span>
-                    <span class="summary-value">₹419.97</span>
+                    <span class="summary-value">₹<%= totalamount%></span>
                 </div>
                 
                 <div class="summary-row">
@@ -179,12 +101,12 @@
                 
                 <div class="summary-row">
                     <span class="summary-label">Tax</span>
-                    <span class="summary-value">₹33.60</span>
+                    <span class="summary-value">₹<%= totaltax%></span>
                 </div>
                 
                 <div class="summary-row total-row">
                     <span class="summary-label">Total</span>
-                    <span class="summary-value">₹453.57</span>
+                    <span class="summary-value">₹<%= totalamount+totaltax %></span>
                 </div>
                 
                 <button class="checkout-btn">

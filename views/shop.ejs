@@ -58,11 +58,11 @@
             
             <div class="filter-section">
                 <h4>Price Range</h4>
-                <input type="range" class="price-range" min="0" max="500" value="250">
+                <input type="range" class="price-range" min="1000" max="10000" value="5000">
                 <div class="price-values">
-                    <span>₹0</span>
-                    <span>₹250</span>
-                    <span>₹500</span>
+                    <span>₹1000</span>
+                    <span>₹5000</span>
+                    <span>₹10000</span>
                 </div>
             </div>
             
@@ -153,9 +153,10 @@
                         <span class="original-price">₹<%= product.price %></span>
                         <span class="discount"><%= product.discount %>% OFF</span>
                     </div>
-                    <button class="add-to-cart">
-                        <i class="fas fa-shopping-cart"></i> Add to Cart
+                   <button class="add-to-cart" data-id="<%= product._id %>">
+                        <i class="fas fa-shopping-cart" ></i> Add to Cart
                     </button>
+                    
                 </div>
             </div>
          
@@ -166,6 +167,5 @@
 
     <script src="/javascript/shop.js"></script>
        
-    </script>
 </body>
 </html>

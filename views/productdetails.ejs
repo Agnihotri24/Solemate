@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nike Air Max 270 - SoleMate</title>
+    <title><%= product.productname %> - SoleMate</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
    <link rel="stylesheet" href="/stylesheet/productdetails.css">
 </head>
@@ -17,7 +17,7 @@
         <div class="nav-links">
             <a href="/users/shop"><i class="fas fa-arrow-left"></i> Back to Shop</a>
             <a href="#"><i class="fas fa-user"></i> Profile</a>
-            <a href="#"><i class="fas fa-shopping-cart"></i> Cart <span class="cart-count">3</span></a>
+            <a href="/users/cart"><i class="fas fa-shopping-cart"></i> Cart <span class="cart-count"></span></a>
         </div>
     </nav>
     
@@ -81,9 +81,11 @@
                 
                 <!-- Action Buttons -->
                 <div class="action-buttons">
+                    <a href="/users/addcart/<%=product._id %>" inherit>
                     <button class="btn btn-primary">
                         <i class="fas fa-shopping-cart"></i> Add to Cart
                     </button>
+                    </a>
                     <button class="btn btn-secondary">
                         <i class="fas fa-heart"></i>
                     </button>

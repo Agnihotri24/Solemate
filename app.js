@@ -13,6 +13,7 @@ app.set('view engine', 'ejs');
 app.set("views", __dirname + "/views");
 
 
+
 const indexRouter = require('./routes/indexRoute');
 const usersRouter = require('./routes/usersRoute');       
 const productRouter = require('./routes/productsRoute');     
@@ -31,4 +32,7 @@ app.use('/users', usersRouter);
 app.use('/owners', ownerRouter);
 app.use('/products', productRouter);
 
-app.listen(3000);
+app.listen(process.env.PORT, ()=>
+{
+    console.log(`server Running on port no ${process.env.PORT}`);
+});
